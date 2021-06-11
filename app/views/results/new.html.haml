@@ -1,0 +1,13 @@
+.today_result
+  %h2 登録したい内容を教えてください。
+
+.result_form
+  = form_with model: @result do |form|
+    .form_challenge_day
+      = form.datetime_field :challenge_day
+    .form_name
+      = form.text_field :name, placeholder: "何をしましたか？"
+    .form_count
+      = form.text_field :count, placeholder: "どれくらいしましたか？"
+    .form_sub
+      = form.submit "登録する"
