@@ -11,3 +11,6 @@
       = form.text_field :count, placeholder: "どれくらいしましたか？"
     .form_sub
       = form.submit "登録する"
+
+.back_btn
+  = link_to "マイページに戻る", user_path(current_user.id)
