@@ -4,4 +4,5 @@ class Result < ApplicationRecord
     validates :count
     validates :challenge_day
   end
+  belongs_to :user
 end

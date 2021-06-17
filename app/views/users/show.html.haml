@@ -1,0 +1,14 @@
+= link_to "新規登録", new_user_path
+= link_to "ログアウト", logout_path
+
+.user_results
+  = "#{current_user.name}さんの成果一覧"
+
+.post_result
+  = link_to "投稿する", new_result_path
+
+- @user.results.each do |result|
+  .your_result
+    = result.challenge_day
+    = result.name
+    = "#{result.count}回"
