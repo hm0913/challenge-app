@@ -6,4 +6,5 @@ class User < ApplicationRecord
   end
   validates :email, uniqueness: true
   has_many :results
+  has_many :goals
 end

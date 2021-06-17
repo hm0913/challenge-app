@@ -1,0 +1,24 @@
+.target_form
+  = form_with model: @goal do |goal|
+    .form_deadline
+      = goal.datetime_field :deadline
+      までに
+    .form_name
+      = goal.text_field :name, placeholder: "例:腹筋"
+      を
+    .form_count
+      = goal.text_field :count, placeholder: "例:100"
+      回する！
+      
+    .form_pass
+      = goal.label "達成できたら"
+      = goal.text_field :pass, placeholder: "例:ケーキを3個食べる！"
+
+    .form_fail
+      = goal.label "できなかったら"
+      =goal.text_field :fail, placeholder: "例:バンジージャンプ"
+
+
+
+    .form_sub
+      = goal.submit "更新"
