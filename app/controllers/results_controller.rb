@@ -8,7 +8,23 @@ class ResultsController < ApplicationController
   end
 
   def create
-    Result.create!(result_params)
+    Result.create(result_params)
+    redirect_to user_path(current_user.id)
+  end
+
+  def edit
+    @result = Result.find(params[:id])
+  end
+
+  def update
+    @result = Result.find(params[:id])
+    @result.update(result_params)
+    redirect_to user_path(current_user.id)
+  end
+
+  def destroy
+    @result = Result.find(params[:id])
+    @result.destroy
     redirect_to user_path(current_user.id)
   end
 

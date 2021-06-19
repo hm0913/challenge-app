@@ -15,3 +15,6 @@
     = result.challenge_day
     = result.name
     = "#{result.count}回"
+    - if logged_in? && current_user.id == result.user_id
+      = link_to "編集", edit_result_path(result.id)
+      = link_to "削除", result_path(result.id), data: {confirm: "本当に削除しますか？"}, method: :delete
