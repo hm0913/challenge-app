@@ -5,4 +5,5 @@ class Result < ApplicationRecord
     validates :challenge_day
   end
   belongs_to :user
+  belongs_to :goal, optional: true
 end

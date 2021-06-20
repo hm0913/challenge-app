@@ -1,0 +1,16 @@
+%h2 あなたの目標
+
+= link_to "マイページ", user_path(current_user.id)
+= link_to "新規投稿", new_result_path
+
+- @goals.each do |goal|
+  .your_goal
+    = "#{goal.id}、#{goal.deadline}までに#{goal.name}を#{goal.count}回する"
+  .your_pass
+    = "達成したら#{goal.pass}"
+  .your_fail
+    = "失敗したら#{goal.fail}"
+  - if logged_in? && current_user.id == goal.user_id
+    = link_to "編集", edit_goal_path(goal.id)
+    = link_to "削除", goal_path(goal.id), data: {confirm: "本当に削除しますか？"}, method: :delete
+    

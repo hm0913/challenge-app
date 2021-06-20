@@ -31,6 +31,6 @@ class ResultsController < ApplicationController
   private
 
   def result_params
-    params.require(:result).permit(:name, :count, :challenge_day, :user_id).merge(user_id: current_user.id)
+    params.require(:result).permit(:name, :count, :challenge_day, :goal_id, :user_id).merge(user_id: current_user.id)
   end
 end
