@@ -3,8 +3,12 @@
     .form_challenge_day
       = form.datetime_field :challenge_day
     .form_name
-      = form.text_field :name, placeholder: "何をしましたか？"
+      = form.collection_select(:name, current_user.goals, :name, :name)
     .form_count
       = form.text_field :count, placeholder: "どれくらいしましたか？"
     .form_sub
       = form.submit "更新"
+
+
+.back_btn
+  = link_to "マイページに戻る", user_path(current_user.id)

@@ -10,6 +10,10 @@
 .post_goal
   = link_to "目標を設定する", new_goal_path
 
+= link_to "目標の確認", goals_path
+
+
+
 - @user.results.each do |result|
   .your_result
     = result.challenge_day
