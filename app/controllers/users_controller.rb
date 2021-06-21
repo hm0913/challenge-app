@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @result_sum = Result.where(user_id: current_user).group(:name).sum(:count)
   end
 
   private
