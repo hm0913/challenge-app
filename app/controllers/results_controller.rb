@@ -1,6 +1,6 @@
 class ResultsController < ApplicationController
   def index
-    @result = Result.all
+    @results = Result.where(user_id: current_user.id)
   end
 
   def new

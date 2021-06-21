@@ -8,5 +8,5 @@ class Goal < ApplicationRecord
   end
 
   belongs_to :user
-  has_many :results
+  has_many :results, dependent: :destroy
 end

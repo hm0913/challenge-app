@@ -2,23 +2,23 @@
 = link_to "ログアウト", logout_path
 
 .user_results
-  = "#{current_user.name}さんの成果一覧"
+  = "#{current_user.name}さんのマイページ"
 
 .post_result
-  = link_to "投稿する", new_result_path
+  = link_to "結果を登録する", new_result_path
 
 .post_goal
   = link_to "目標を設定する", new_goal_path
 
-= link_to "目標の確認", goals_path
+.index_goal
+  = link_to "目標の確認", goals_path
+
+.index_result
+  = link_to "結果の確認", results_path
+ 
 
 
-
-- @user.results.each do |result|
-  .your_result
-    = result.challenge_day
-    = result.name
-    = "#{result.count}回"
-    - if logged_in? && current_user.id == result.user_id
-      = link_to "編集", edit_result_path(result.id)
-      = link_to "削除", result_path(result.id), data: {confirm: "本当に削除しますか？"}, method: :delete
+%h2 現在の達成回数
+- @result_sum.each do |name,count|
+  .result_count
+    = "現在の回数：#{name}を#{count}回達成！"
