@@ -15,3 +15,6 @@
     = user.label "確認用パスワード"
     = user.text_field :password_confirmation
   = user.submit "登録"
+
+.login_path
+  = link_to "ログインはこちら", login_path
