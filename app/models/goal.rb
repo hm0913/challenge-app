@@ -1,4 +1,6 @@
 class Goal < ApplicationRecord
+  require 'date'
+
   with_options presence: true do
     validates :name
     validates :deadline

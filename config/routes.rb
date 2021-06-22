@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :results
-  root "goals#new"
+  root "results#new"
   
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :goals
+
  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -3,17 +3,29 @@
 = link_to "マイページ", user_path(current_user.id)
 = link_to "新規投稿", new_result_path
 
-- @goals.each do |goal|
+- @goals.zip(@result_sum).each do |goal, (result, count)|
   .goal_number
     = "[目標番号：#{goal.id}]"
     - if logged_in? && current_user.id == goal.user_id
       = link_to "編集", edit_goal_path(goal.id)
       = link_to "削除", goal_path(goal.id), data: {confirm: "本当に削除しますか？"}, method: :delete
+  .your_deadline
+    -if (goal.deadline - Date.today) > 0
+      = "期限日まで残り#{(goal.deadline - Date.today).numerator}日！"
+    - elsif goal.deadline == Date.today
+      = "今日が期限です！"
+    - else
+      = "期限が切れてます！"
   .your_goal
     = "#{goal.deadline}までに#{goal.name}を#{goal.count}回する"
   .your_pass
     = "達成したら#{goal.pass}"
   .your_fail
     = "失敗したら#{goal.fail}"
-  
-    
+  - if count.present?
+    .your_commit
+      - if (goal.deadline - Date.today).numerator >= 0 && count >= goal.count
+        = "達成"
+      - elsif (goal.deadline - Date.today).numerator <= 0 && count < goal.count
+        = "失敗"
+      - else
