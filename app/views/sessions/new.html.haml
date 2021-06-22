@@ -11,3 +11,5 @@
     = user.submit "ログイン"
   .signup_btn
     = link_to "まだ登録がお済みではない方はこちら", new_user_path
+
+  = link_to "ゲストユーザーでログイン", sessions_guest_sign_in_path, method: :post
