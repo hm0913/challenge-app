@@ -1,6 +1,7 @@
 class ResultsController < ApplicationController
   def index
     @results = Result.where(user_id: current_user.id)
+    @result_sum = Result.where(user_id: current_user).group(:name).sum(:count)
   end
 
   def new

@@ -1,12 +1,27 @@
-%h2 あなたの成果
-
-= link_to "マイページ", user_path(current_user.id)
-
-- @results.each do |result|
-  .your_result
-    = result.challenge_day
-    = result.name
-    = "#{result.count}回"
-    - if logged_in? && current_user.id == result.user_id
-      = link_to "編集", edit_result_path(result.id)
-      = link_to "削除", result_path(result.id), data: {confirm: "本当に削除しますか？"}, method: :delete
+.all_result
+  .back_btn
+    = link_to "マイページ", user_path(current_user.id)
+  .sum_list
+    %h3 現在の達成回数
+    .sum_unity
+      - @result_sum.each do |name,count|
+        .result_count
+          = "#{name}を#{count}回達成！"
+  
+  .fight_list
+    %h3 日々の進捗  
+    .result_unity
+      - @results.order(created_at: :desc).each do |result|
+        .result__details
+          .result_challenge_day
+            = result.challenge_day
+          .result_name
+            = result.name
+          .result_count
+            = "#{result.count}回"
+          .icon
+            - if logged_in? && current_user.id == result.user_id
+              = link_to edit_result_path(result.id) do
+                = icon("fas", "edit", class: "edit-btn")
+              = link_to result_path(result.id), data: {confirm: "本当に削除しますか？"}, method: :delete do
+                = icon("fas", "trash-alt", class: "delete-btn")

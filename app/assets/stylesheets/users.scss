@@ -1,3 +1,94 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top_btn {
+  height: 100px;
+  text-align: right;
+}
+
+.user_mypage {
+  height: 360px;
+  width: 512px;
+  margin: 0 auto;
+  // border: solid thin black;
+  
+  &__name {
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    margin: 30px;
+  }
+
+
+  .post_result {
+    background-color: lightyellow;
+    border: solid medium yellow;
+    height: 150px;
+    width: 250px;
+    float: right;
+    line-height: 150px;
+    text-align: center;
+    a {
+      color: black;
+      display: inline-block;
+      text-decoration: none;
+      width: 15em;
+    }
+  }
+
+  .post_goal {
+    background-color: lightcoral;
+    border: solid medium red;
+    height: 150px;
+    width: 250px;
+    float: right;
+    line-height: 150px;
+    text-align: center;
+    text-decoration: none;
+    a {
+      color: black;
+      display: inline-block;
+      text-decoration: none;
+      width: 15em;
+    }
+  }
+
+  .index_goal {
+    background-color: lightblue;
+    border: solid medium blue;
+    height: 150px;
+    width: 250px;
+    float: right;
+    line-height: 150px;
+    text-align: center;
+    a {
+      color: black;
+      display: inline-block;
+      text-decoration: none;
+      width: 15em;
+    }
+  }
+
+  .index_result {
+    background-color: lightgreen;
+    border: solid medium green;
+    height: 150px;
+    width: 250px;
+    float: right;
+    line-height: 150px;
+    text-align: center;
+    a {
+      color: black;
+      display: inline-block;
+      text-decoration: none;
+      width: 15em;
+    }
+  }
+}
+
+.fight_list {
+  width: 512px;
+  margin: 0 auto;
+  // border: solid thin black;
+}

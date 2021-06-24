@@ -1,0 +1,55 @@
+.all_result {
+  width: 500px;
+  margin: 0 auto;
+  border: solid thin black;
+  padding: 10px;
+  
+  .sum_unity {
+    font-size: 15px;
+  }
+
+  .result_unity {
+    width: 500px;
+    .result__details {
+      display: flex;
+      border-bottom: dotted thin black;
+      padding: 15px;
+      justify-content: space-between;
+      margin: 5px;
+      font-size: 13px;
+
+      .result_challenge_day {
+        
+      }
+
+      .result_name {
+
+      }
+
+      .result_count {
+
+      }
+
+      .icon {
+        width: 200px;
+        text-align: right;
+        a {
+        color: gray;
+        }
+      }
+    }
+
+  }
+
+  .back_btn {
+    padding: 5px;
+    border: solid thin black;
+    float: right;
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: black;
+      
+    }
+  }
+}

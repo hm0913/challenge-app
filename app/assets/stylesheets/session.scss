@@ -1,0 +1,53 @@
+.session_page {
+  width: 500px;
+  margin: 0 auto;
+  border: solid thin black;
+  padding: 10px;
+  .login_form {
+    
+    .goal_details {
+      .label {
+        font-size: 13px;
+      }
+      .form {
+
+      }
+      .sub {
+        padding-top: 10px;
+        input {
+          font-size: 13px;
+        }
+
+      }
+
+    }
+  }
+  .signup_btn {
+    a {
+      font-size: 13px;
+    }
+  }
+
+  .login_path {
+    a {
+      font-size: 12px;
+    }
+  }
+}
+.guest_btn {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  font-size: 13px;
+  border: solid thin black;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 200px;
+  background-color: tomato;
+  a {
+    display: inline-block;
+    text-decoration: none;
+    width: 15em;
+    font-weight: bolder;
+  }
+}

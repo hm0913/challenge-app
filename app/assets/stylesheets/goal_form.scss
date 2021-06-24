@@ -1,0 +1,44 @@
+.your_target {
+  width: 500px;
+  margin: 0 auto;
+  border: solid thin black;
+  padding: 10px;
+
+  .target_form {
+    .form {
+      input {
+        width: 200px;
+        height: 30px;
+      }
+    }
+
+    .label {
+      font-size: 13px;
+    }
+
+    .goal_sub {
+      text-align: center;
+      padding: 30px;
+      input {
+        height: 50px;
+        width: 200px;
+        font-size: 15px;
+        background-color: tomato;
+      }
+    }
+
+  }
+
+  .back_btn {
+    padding: 5px;
+    border: solid thin black;
+    float: right;
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: black;
+      
+    }
+
+  }
+}

@@ -1,20 +1,28 @@
-%h1 アカウント登録
+.session_page
+  %h1 アカウント登録
 
+  .session_form
+    = form_with model: @user do |user|
+      .login_form 
+        .goal_details
+          .label
+            = user.label "ニックネーム"
+          .form
+            = user.text_field :name
+          .label
+            = user.label "email"
+          .form
+            = user.text_field :email
+          .label
+            = user.label "パスワード"
+          .form
+            = user.text_field :password
+          .label
+            = user.label "確認用パスワード"
+          .form
+            = user.text_field :password_confirmation
+          .sub
+            = user.submit "登録"
 
-= form_with model: @user do |user|
-  .user_name
-    = user.label "ニックネーム"
-    = user.text_field :name
-  .user_email
-    = user.label "email"
-    = user.text_field :email
-  .user_pass
-    = user.label "パスワード"
-    = user.text_field :password
-  .user.check_pass
-    = user.label "確認用パスワード"
-    = user.text_field :password_confirmation
-  = user.submit "登録"
-
-.login_path
-  = link_to "ログインはこちら", login_path
+          .login_path
+            = link_to "ログインはこちら", login_path

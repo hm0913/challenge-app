@@ -1,0 +1,66 @@
+.today_result {
+  width: 500px;
+  margin: 0 auto;
+  border: solid thin black;
+  padding: 10px;
+
+  .result_form {
+    
+    .label_goal {
+      font-size: 13px;
+      a {
+        color: black;
+      }
+    }
+
+    .form_goal {
+      select {
+        width: 150px;
+      }
+    }
+
+    .form_name {
+      select {
+        width: 150px;
+      }
+    }
+
+    .label {
+      font-size: 13px;
+
+    }
+
+    .form {
+      input {
+        width: 150px;
+        height: 30px;
+      }
+
+    }
+
+    .result_sub {
+      text-align: center;
+      padding: 30px;
+      input {
+        height: 50px;
+        width: 200px;
+        font-size: 15px;
+        background-color: yellow;
+      }
+
+    }
+
+  
+  }
+
+  .back_btn {
+    padding: 5px;
+    border: solid thin black;
+    float: right;
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
