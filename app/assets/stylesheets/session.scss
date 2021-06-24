@@ -3,6 +3,17 @@
   margin: 0 auto;
   border: solid thin black;
   padding: 10px;
+  .back_btn {
+    padding: 5px;
+    border: solid thin black;
+    float: right;
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: black;
+      
+    }
+  }
   .login_form {
     
     .goal_details {
@@ -31,6 +42,14 @@
   .login_path {
     a {
       font-size: 12px;
+    }
+  }
+
+  .delete_btn {
+    a {
+      color: black;
+      text-decoration: none;
+      font-size: 13px;
     }
   }
 }

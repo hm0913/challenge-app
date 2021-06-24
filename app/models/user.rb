@@ -5,8 +5,8 @@ class User < ApplicationRecord
     validates :email
   end
   validates :email, uniqueness: true
-  has_many :results
-  has_many :goals
+  has_many :results, dependent: :destroy
+  has_many :goals, dependent: :destroy
 
   def self.guest
     find_or_create_by!(email: "test1@com") do |user|

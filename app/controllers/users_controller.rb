@@ -17,6 +17,23 @@ class UsersController < ApplicationController
     @result_sum = Result.where(user_id: current_user).group(:name).sum(:count)
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(current_user.id)
+
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to new_user_path
+  end
+
   private
 
   def user_params
