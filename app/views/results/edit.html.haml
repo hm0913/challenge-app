@@ -1,12 +1,19 @@
-.result_form
-  = form_with model: @result do |form|
-    .form_challenge_day
-      = form.datetime_field :challenge_day
-    .form_name
-      = form.collection_select(:name, current_user.goals, :name, :name)
-    .form_count
-      = form.text_field :count, placeholder: "どれくらいしましたか？"
-    .form_sub
-      = form.submit "更新"
-.back_btn
-  = link_to "マイページに戻る", user_path(current_user.id)
+.today_result
+  .back_btn
+    = link_to "マイページに戻る", user_path(current_user.id)
+  .result_form
+    = form_with model: @result do |form|
+      .label
+        = form.label :deadline, "期限"
+      .form
+        = form.datetime_field :challenge_day
+      .label
+        = form.label :name, "項目"
+      .form_name
+        = form.collection_select(:name, current_user.goals, :name, :name)
+      .label
+        = form.label :count, "回数"
+      .form
+        = form.text_field :count, placeholder: "どれくらいしましたか？"
+      .result_sub
+        = form.submit "更新"

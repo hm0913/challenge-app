@@ -1,8 +1,8 @@
 .top_btn
-  .new_btn
-    = link_to "新規登録", new_user_path
-  .logout_btn
+  .btn
     = link_to "ログアウト", logout_path
+  .btn
+    = link_to "アカウント編集", edit_user_path(@user.id)
 
 .user_mypage
   .user_mypage__name
