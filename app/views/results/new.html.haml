@@ -1,21 +1,26 @@
 .today_result
+  .back_btn
+    = link_to "マイページ", user_path(current_user.id)
   %h2 登録したい内容を教えてください。
 
-.result_form
-  = form_with model: @result do |form|
-    .label_goal
-      = form.label "対象の目標番号を選んでください"
-      = link_to "(番号を確認する)", goals_path
-    .form_goal
-      = form.collection_select(:goal_id, current_user.goals, :id, :id)
-    .form_challenge_day
-      = form.datetime_field :challenge_day
-    .form_name
-      = form.collection_select(:name, current_user.goals, :name, :name)
-    .form_count
-      = form.text_field :count, placeholder: "どれくらいしましたか？"
-    .form_sub
-      = form.submit "登録"
-
-.back_btn
-  = link_to "マイページに戻る", user_path(current_user.id)
+  .result_form
+    = form_with model: @result do |form|
+      .label_goal
+        = form.label "対象の目標番号を選んでください"
+        = link_to "(番号の確認はこちら)", goals_path
+      .form_goal
+        = form.collection_select(:goal_id, current_user.goals, :id, :id, {prompt: "選択してください"})
+      .label
+        = form.label "日付"
+      .form
+        = form.datetime_field :challenge_day
+      .label
+        = form.label "項目を選んでください"
+      .form_name
+        = form.collection_select(:name, current_user.goals, :name, :name, {prompt: "選択してください"})
+      .label
+        = form.label "回数"
+      .form
+        = form.text_field :count, placeholder: "例：10"
+      .result_sub
+        = form.submit "登録"

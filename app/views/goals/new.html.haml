@@ -1,30 +1,37 @@
 .your_target
+  .back_btn
+    = link_to "マイページ", user_path(current_user.id)
   %h2 達成目標を決めてください。
 
-.target_form
-  = form_with model: @goal do |goal|
-    .form_deadline
-      = goal.datetime_field :deadline
-      までに
-    .form_name
-      = goal.text_field :name, placeholder: "例:腹筋"
-      を
-    .form_count
-      = goal.text_field :count, placeholder: "例:100"
-      回する！
-      
-    .form_pass
-      = goal.label "達成できたら"
-      = goal.text_field :pass, placeholder: "例:ケーキを3個食べる！"
+  .target_form
+    = form_with model: @goal do |goal|
+      .label
+        = goal.label :deadline, "期限"
+      .form
+        = goal.datetime_field :deadline
 
-    .form_fail
-      = goal.label "できなかったら"
-      =goal.text_field :fail, placeholder: "例:バンジージャンプ"
+      .label
+        = goal.label :name, "項目"
+      .form
+        = goal.text_field :name, placeholder: "例:腹筋"
 
+      .label
+        = goal.label :count, "回数"
+      .form
+        = goal.text_field :count, placeholder: "例:100"
+      .your_lastday
+        %h2 ご褒美/罰ゲームを決めてください。
+      .label
+        = goal.label :pass, "達成できたら"
+      .form
+        = goal.text_field :pass, placeholder: "例:ケーキを3個食べる！"
 
+      .label
+        = goal.label :fail, "失敗したら"
+      .form
+        =goal.text_field :fail, placeholder: "例:バンジージャンプ"
 
-    .form_sub
-      = goal.submit "登録"
+      .goal_sub
+        = goal.submit "登録"
 
-.back_btn
-  = link_to "マイページに戻る", user_path(current_user.id)
+  

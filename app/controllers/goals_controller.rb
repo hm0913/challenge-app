@@ -2,8 +2,8 @@ class GoalsController < ApplicationController
 
   def index
     # binding.pry
-    @goals = Goal.where(user_id: current_user.id).order(:name)
-    @result_sum = Result.where(user_id: current_user).group(:name).sum(:count)
+    @goals = Goal.where(user_id: current_user.id)
+    @result_sum = Result.where(user_id: current_user).group(:goal_id).sum(:count)
   end
 
   def new

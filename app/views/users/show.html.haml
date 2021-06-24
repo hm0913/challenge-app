@@ -1,24 +1,22 @@
-= link_to "新規登録", new_user_path
-= link_to "ログアウト", logout_path
+.top_btn
+  .new_btn
+    = link_to "新規登録", new_user_path
+  .logout_btn
+    = link_to "ログアウト", logout_path
 
-.user_results
-  = "#{current_user.name}さんのマイページ"
+.user_mypage
+  .user_mypage__name
+    %h2
+      = "#{current_user.name}さんのマイページ"
 
-.post_result
-  = link_to "結果を登録する", new_result_path
+  .post_result
+    = link_to "結果を登録する", new_result_path
 
-.post_goal
-  = link_to "目標を設定する", new_goal_path
+  .post_goal
+    = link_to "目標を設定する", new_goal_path
 
-.index_goal
-  = link_to "目標の確認", goals_path
+  .index_goal
+    = link_to "目標の確認", goals_path
 
-.index_result
-  = link_to "結果の確認", results_path
- 
-
-
-%h2 現在の達成回数
-- @result_sum.each do |name,count|
-  .result_count
-    = "現在の回数：#{name}を#{count}回達成！"
+  .index_result
+    = link_to "結果の確認", results_path

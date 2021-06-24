@@ -1,31 +1,42 @@
-%h2 あなたの目標
+.your_target
+  .back_btn
+    = link_to "マイページ", user_path(current_user.id)
+  .new_btn
+    = link_to "新規投稿", new_result_path
+  %h2 あなたの目標
 
-= link_to "マイページ", user_path(current_user.id)
-= link_to "新規投稿", new_result_path
+  .goal_unity
+    - @goals.zip(@result_sum).each do |goal, (result, count)|
+      .goal_details
+        .goal_number
+          = "[目標番号：#{goal.id}]"
+          .countdown
+            -if (goal.deadline - Date.today) > 0
+              = "期限日まで残り#{(goal.deadline - Date.today).numerator}日！"
+            - elsif goal.deadline == Date.today
+              = "今日が期限です！"
+            - else
+              = "期限が切れています！"
+              
+            - if logged_in? && current_user.id == goal.user_id
+              = link_to edit_goal_path(goal.id), method: :get do
+                = icon("fas", "edit", class: "edit-btn")
+              = link_to goal_path(goal.id), data: {confirm: "本当に削除しますか？"}, method: :delete do
+                = icon("fas", "trash-alt", class: "delete-btn")
 
-- @goals.zip(@result_sum).each do |goal, (result, count)|
-  .goal_number
-    = "[目標番号：#{goal.id}]"
-    - if logged_in? && current_user.id == goal.user_id
-      = link_to "編集", edit_goal_path(goal.id)
-      = link_to "削除", goal_path(goal.id), data: {confirm: "本当に削除しますか？"}, method: :delete
-  .your_deadline
-    -if (goal.deadline - Date.today) > 0
-      = "期限日まで残り#{(goal.deadline - Date.today).numerator}日！"
-    - elsif goal.deadline == Date.today
-      = "今日が期限です！"
-    - else
-      = "期限が切れてます！"
-  .your_goal
-    = "#{goal.deadline}までに#{goal.name}を#{goal.count}回する"
-  .your_pass
-    = "達成したら#{goal.pass}"
-  .your_fail
-    = "失敗したら#{goal.fail}"
-  - if count.present?
-    .your_commit
-      - if (goal.deadline - Date.today).numerator >= 0 && count >= goal.count
-        = "達成"
-      - elsif (goal.deadline - Date.today).numerator <= 0 && count < goal.count
-        = "失敗"
-      - else
+        .your_goal
+          = "#{goal.deadline}までに#{goal.name}を#{goal.count}回する"
+        .your_pass
+          = "達成したら#{goal.pass}"
+        .your_fail
+          = "失敗したら#{goal.fail}"
+        - if count.present?
+          .your_commit
+            - if (goal.deadline - Date.today).numerator >= 0 && count >= goal.count
+              .pass
+                = "達成！"
+            - elsif (goal.deadline - Date.today).numerator < 0 && count < goal.count
+              .fail
+                = "失敗！"
+            - else
+              .else

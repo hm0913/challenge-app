@@ -1,15 +1,19 @@
-%h1 ログイン
-
-= form_with url: login_path do |user|
-  .user_email
-    = user.label :email
-    = user.email_field :email
-  .user_pass
-    = user.label "パスワード"
-    = user.password_field :password
-  .sub
-    = user.submit "ログイン"
-  .signup_btn
-    = link_to "まだ登録がお済みではない方はこちら", new_user_path
-
-  = link_to "ゲストユーザーでログイン", sessions_guest_sign_in_path, method: :post
+.session_page
+  %h1 ログイン
+  .login_form
+    = form_with url: login_path do |user|
+      .goal_details
+        .label
+          = user.label :email
+        .form
+          = user.email_field :email
+        .label
+          = user.label "パスワード"
+        .form  
+          = user.password_field :password
+        .sub
+          = user.submit "ログイン"
+        .guest_btn
+          = link_to "ゲストユーザーでログイン", sessions_guest_sign_in_path, method: :post
+        .signup_btn
+          = link_to "まだ登録がお済みではない方はこちら", new_user_path
